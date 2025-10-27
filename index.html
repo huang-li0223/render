@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>黃巧莉 Chiao-Li Huang</title>
+  <style>
+    body {
+      font-family: "Microsoft JhengHei", sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fafafa;
+      color: #333;
+      line-height: 1.7;
+    }
+
+    header {
+      background: linear-gradient(135deg, #f293e4, #d36ce8);
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    header img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 4px solid white;
+      margin-bottom: 15px;
+    }
+
+    header h1 {
+      margin: 10px 0 5px;
+      font-size: 2.5em;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      font-size: 1.1em;
+    }
+
+    nav {
+      background: #333;
+      text-align: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 20px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #f293e4;
+    }
+
+    section {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 0 20px;
+    }
+
+    section h2 {
+      border-left: 6px solid #f293e4;
+      padding-left: 10px;
+      color: #333;
+    }
+
+    .timeline {
+      margin-top: 20px;
+      border-left: 3px solid #f293e4;
+      padding-left: 20px;
+    }
+
+    .timeline-item {
+      margin-bottom: 40px;
+    }
+
+    .timeline-item h3 {
+      color: #d36ce8;
+      margin-bottom: 5px;
+    }
+
+    ul {
+      margin: 15px 0;
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 8px;
+    }
+
+    blockquote {
+      font-style: italic;
+      background: #f7e6f8;
+      border-left: 5px solid #d36ce8;
+      padding: 15px 20px;
+      margin: 30px 0;
+      color: #555;
+      border-radius: 8px;
+    }
+
+    footer {
+      background: #222;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      margin-top: 60px;
+      font-size: 0.9em;
+    }
+
+    /* 社團經驗卡片區 */
+    .club-gallery {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin-top: 15px;
+    }
+
+    .club-card {
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      overflow: hidden;
+      width: calc(50% - 10px);
+      transition: transform 0.3s;
+    }
+
+    .club-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .club-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+    }
+
+    .club-card h4 {
+      color: #d36ce8;
+      margin: 10px 15px 5px;
+    }
+
+    .club-card p {
+      margin: 0 15px 15px;
+      color: #555;
+      font-size: 0.95em;
+    }
+
+    @media (max-width: 600px) {
+      header h1 { font-size: 2em; }
+      header img { width: 120px; height: 120px; }
+      .club-card { width: 100%; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <img src="images/profile.jpg" alt="個人照片">
+    <h1>黃巧莉 Chiao-Li Huang</h1>
+    <p>國立台灣師範大學 科技應用與人力資源發展學系 大二</p>
+  </header>
+
+  <nav>
+    <a href="#about">關於我</a>
+    <a href="#skills">興趣與專長</a>
+    <a href="#experience">個人經歷</a>
+    <a href="#goals">目標與理念</a>
+    <a href="#contact">聯絡我</a>
+  </nav>
+
+  <section id="about">
+    <h2>關於我</h2>
+    <p>嗨！我是黃巧莉，目前就讀於國立台灣師範大學科技應用與人力資源發展學系。我熱愛心理學、教育科技與設計，希望能在科技與人之間找到更好的連結方式。除了學業，我也喜歡觀察生活、嘗試新事物與紀錄創意靈感。</p>
+    <blockquote>「學習不只是為了得到答案，而是為了理解世界的更多可能。」</blockquote>
+  </section>
+
+  <section id="skills">
+    <h2>興趣與專長</h2>
+    <ul>
+      <li>心理學與人際互動研究</li>
+      <li>教育科技與資料分析基礎</li>
+      <li>溝通與團隊合作能力</li>
+      <li>研究報告與簡報製作 (Tableau, Canva, PowerPoint)</li>
+    </ul>
+  </section>
+
+  <section id="experience">
+    <h2>個人經歷</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>2024 國立中央大學附屬中壢高級中學 畢業</h3>
+      </div>
+
+      <!-- 高中社團與幹部經驗 -->
+      <div class="timeline-item">
+        <h3>高中社團與幹部經驗</h3>
+        <div class="club-gallery">
+          <div class="club-card">
+            <img src="images/club1.jpg" alt="高中吉他社">
+            <h4>吉他社 活動長</h4>
+            <p>舉辦社團內各個大小活動，培養團隊合作與舞台統籌能力以及上台經驗。</p>
+          </div>
+          <div class="club-card">
+            <img src="images/club2.jpg" alt="高中幹部">
+            <h4>曾擔任 班長、風紀股長</h4>
+            <p>帶領班上同學進行各種活動，維繫大家感情，帶動班上優良風氣。</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="timeline-item">
+        <h3>2024至今 國立台灣師範大學</h3>
+        <p>科技應用與人力資源發展學系</p>
+      </div>
+
+      <!-- 大學社團與幹部經驗 -->
+      <div class="timeline-item">
+        <h3>大學社團與幹部經驗</h3>
+        <div class="club-gallery">
+          <div class="club-card">
+            <img src="images/uni_club1.jpg" alt="大學人資系學會">
+            <h4>科技系學會 活動部</h4>
+            <p>負責籌辦科技之夜活動，帶領幹部完成工作。</p>
+          </div>
+          <div class="club-card">
+            <img src="images/uni_club2.jpg" alt="系迎新活動">
+            <h4>熱音社 公關＊攝影</h4>
+            <p>負責社團對外窗口聯繫，管理社群網站。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="goals">
+    <h2>目標與理念</h2>
+    <p>我希望未來能結合科技、人力資源與心理學，打造讓人們能更有效學習與成長的系統。  
+    無論是在教育領域或企業培訓中，我都相信「理解人」是一切事物的核心。</p>
+    <p>未來短期目標包括：</p>
+    <ul>
+      <li>持續累積人力資源與科技領域的實務經驗</li>
+      <li>學習使用更多數據分析與視覺化工具</li>
+      <li>建立屬於自己的個人品牌與專業網站</li>
+    </ul>
+  </section>
+
+  <section id="contact">
+    <h2>聯絡我</h2>
+    <p>📧 Email: <a href="mailto:karly.950223@gmail.com">karly.950223@gmail.com</a></p>
+    <p>📷 Instagram: <a href="https://www.instagram.com/" target="_blank">@li.___23</a></p>
+    <p>💼 LinkedIn: <a href="https://linkedin.com" target="_blank">linkedin.com/in/你的帳號</a></p>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 黃巧莉 | 個人網站設計 by Chiao-Li</p>
+  </footer>
+</body>
+</html>
