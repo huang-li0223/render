@@ -1,24 +1,16 @@
 import { GoogleGenAI } from '@google/genai';
 import React, { useEffect, useMemo, useRef, useState } from 'react';
 
-// 移除了 TypeScript 的型別定義
-// export type Part = { text: string };
-// export type ChatMsg = { role: 'user' | 'model'; parts: Part[] };
-
 export default function AItest() {
-  const [model, setModel] = useState('gemini-2.5-flash');
+  const [model] = useState('gemini-2.5-flash'); // setModel 未使用
   const [apiKey, setApiKey] = useState('');
-  // 移除了 useState 的型別註釋 <ChatMsg[]>
   const [history, setHistory] = useState([]);
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(false);
-  // 移除了 useState 的型別註釋 <'chat' | 'quiz'>
   const [mode, setMode] = useState('chat');
   const [error, setError] = useState('');
-  // 移除了 useRef 的型別註釋 <HTMLDivElement | null>
   const listRef = useRef(null);
 
-  // 預設歡迎訊息
   useEffect(() => {
     setHistory([
       {
@@ -32,7 +24,6 @@ export default function AItest() {
     ]);
   }, []);
 
-  // 自動滾動到底
   useEffect(() => {
     const el = listRef.current;
     if (el) el.scrollTop = el.scrollHeight;
@@ -40,31 +31,27 @@ export default function AItest() {
 
   const ai = useMemo(() => {
     try {
-      // 移除了 new GoogleGenAI 的型別註釋 { apiKey }
       return apiKey ? new GoogleGenAI({ apiKey }) : null;
     } catch {
       return null;
     }
-  }, [apiKey]);
+  }, [apiKey]); // ✅ 修正：刪掉多餘的 n
 
-  // 移除了參數 message 的型別註釋 string
   async function sendMessage(message) {
     const content = (message ?? input).trim();
     if (!content || loading) return;
     if (!ai) {
-      setError('請輸入有效的 Gemini API Key');
+      setError('請輸入有效的 API Key');
       return;
     }
 
     setError('');
     setLoading(true);
-    // 移除了 newHistory 的型別註釋
     const newHistory = [...history, { role: 'user', parts: [{ text: content }] }];
     setHistory(newHistory);
     setInput('');
 
     try {
-      // 移除了 err 的型別註釋 : any
       const resp = await ai.models.generateContent({
         model,
         contents: [
@@ -92,7 +79,6 @@ export default function AItest() {
     }
   }
 
-  // 移除了參數 text 的型別註釋 string
   function renderMarkdownLike(text) {
     return text.split(/\n/).map((line, i) => (
       <div key={i} style={{ whiteSpace: 'pre-wrap', wordBreak: 'break-word' }}>
@@ -101,8 +87,6 @@ export default function AItest() {
     ));
   }
 
-  // 底部快速題目選項
-  // 移除了 quickPrompts 的型別註釋
   const quickPrompts = [
     '幫我推薦幾部最近好看的 Netflix 影集',
     '我想看溫馨又療癒的電影，有什麼推薦？',
@@ -114,7 +98,6 @@ export default function AItest() {
   return (
     <div style={styles.wrap}>
       <div style={styles.card}>
-        {/* 標題 + 模式切換 */}
         <div style={styles.header}>
           <h2>🎬 電影靈魂測驗室</h2>
           <button
@@ -133,19 +116,16 @@ export default function AItest() {
           </button>
         </div>
 
-        {/* API Key 輸入 */}
         <div style={styles.keyArea}>
           <input
             type="password"
             value={apiKey}
-            // 移除了 onChange 參數 e 的型別註釋 (e)
             onChange={(e) => setApiKey(e.target.value)}
-            placeholder="請輸入你的 Gemini API Key"
+            placeholder="AIzaSyBR8DoAiKh8DduFVXvJONHUsnxwv1GfAFg"
             style={styles.input}
           />
         </div>
 
-        {/* 訊息區 */}
         <div ref={listRef} style={styles.messages}>
           {history.map((m, i) => (
             <div
@@ -168,12 +148,9 @@ export default function AItest() {
           )}
         </div>
 
-        {/* 錯誤提示 */}
         {error && <div style={styles.error}>⚠ {error}</div>}
 
-        {/* 底部輸入區 */}
         <form
-          // 移除了 onSubmit 參數 e 的型別註釋 (e)
           onSubmit={(e) => {
             e.preventDefault();
             sendMessage();
@@ -182,7 +159,6 @@ export default function AItest() {
         >
           <input
             value={input}
-            // 移除了 onChange 參數 e 的型別註釋 (e)
             onChange={(e) => setInput(e.target.value)}
             placeholder="輸入訊息..."
             style={styles.textInput}
@@ -192,7 +168,6 @@ export default function AItest() {
           </button>
         </form>
 
-        {/* 🔹快速提問按鈕區 */}
         <div style={styles.quickContainer}>
           {quickPrompts.map((q, idx) => (
             <button key={idx} onClick={() => sendMessage(q)} style={styles.quickBtn}>
@@ -205,7 +180,6 @@ export default function AItest() {
   );
 }
 
-// 移除了 styles 的型別註釋 : Record<string, React.CSSProperties>
 const styles = {
   wrap: {
     height: '100vh',
